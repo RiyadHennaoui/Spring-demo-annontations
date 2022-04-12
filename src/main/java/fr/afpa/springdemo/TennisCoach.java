@@ -2,9 +2,14 @@ package fr.afpa.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
+//@Scope("prototype")
 public class TennisCoach implements Coach {
 
 
@@ -110,6 +115,35 @@ public class TennisCoach implements Coach {
         System.err.println(">> TennisCoach: inside doSomeCrazyStuff method");
     }
 */
+
+
+/**
+ * Special Note about @PostConstruct and @PreDestroy Method Signatures
+ *
+ * I want to provide additional details regarding the method signatures of @PostContruct and @PreDestroy methods.
+ *
+ * Access modifier
+ *
+ * The method can have any access modifier (public, protected, private)
+ *
+ * Return type
+ * The method can have any return type. However, "void' is most commonly used. If you give a return type just note that you will not be able to capture the return value. As a result, "void" is commonly used.
+ *
+ * Method name
+ * The method can have any method name.
+ *
+ * Arguments
+ * The method can not accept any arguments. The method should be no-arg.
+ * */
+    @PostConstruct
+    public void doMyStartupStuff(){
+        System.out.println(">> TennisCoach: inside of doMyStartupStuff()");
+    }
+    @PreDestroy
+    public void doMyCleanupStuff(){
+        System.out.println(">> TennisCoach: inside of doMyCleanupStuff()");
+    }
+
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";
