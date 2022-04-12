@@ -22,10 +22,16 @@ public class TennisCoach implements Coach {
 //    }
 
 
+//    @Autowired
+//    public void setFortuneService(FortuneService fortuneService) {
+//        this.fortuneService = fortuneService;
+//        System.err.println(">> TennisCoach: inside setter method");
+//    }
+
     @Autowired
-    public void setFortuneService(FortuneService fortuneService) {
-        this.fortuneService = fortuneService;
-        System.err.println(">> TennisCoach: inside setter method");
+    public void doSomeCrazyStuff(FortuneService fortuneService){
+        this.fortuneService =fortuneService;
+        System.err.println(">> TennisCoach: inside doSomeCrazyStuff method");
     }
 
     @Override
