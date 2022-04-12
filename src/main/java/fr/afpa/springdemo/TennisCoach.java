@@ -8,13 +8,24 @@ public class TennisCoach implements Coach {
 
     private FortuneService fortuneService;
 
+    public TennisCoach() {
+        System.err.println(">> TennisCoach: inside default constructor");
+    }
+
     /**
      * @Autowired is no longer necessary if the target bean only defines one constructor.
      * see the doc https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-autowired-annotation
      * */
+//    @Autowired
+//    public TennisCoach(FortuneService fortuneService) {
+//        this.fortuneService = fortuneService;
+//    }
+
+
     @Autowired
-    public TennisCoach(FortuneService fortuneService) {
+    public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
+        System.err.println(">> TennisCoach: inside setter method");
     }
 
     @Override
