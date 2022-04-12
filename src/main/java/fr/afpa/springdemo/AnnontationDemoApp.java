@@ -15,6 +15,9 @@ public class AnnontationDemoApp {
         //call a method on the bean
         System.out.println(theCoach.getDailyWorkout());
 
+        //call method to get daily fortune
+        System.err.println(theCoach.getDailyFortuen());
+
         //close the context
         context.close();
     }
